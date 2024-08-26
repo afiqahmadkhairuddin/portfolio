@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">
       <svg width="640" height="160" viewBox="0 0 640 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,9 +63,9 @@
       </div>
     </div>
   </div>
-  </nav>
+  </nav> -->
 
-  <section>
+  <!-- <section>
         <b-field grouped group-multiline>
             <b-field>
                 <div class="control">
@@ -83,8 +83,8 @@
             :unselectable-dates="unselectableDates"
             :unselectable-days-of-week="disableWeekends ? [0, 6] : null">
         </b-datepicker>
-    </section>
-    <section>
+    </section> -->
+    <!-- <section>
         <b-progress :value="20" show-value></b-progress>
 
         <b-progress 
@@ -110,25 +110,73 @@
             :value="100" 
             show-value
          ></b-progress>
-    </section>
+    </section> -->
 
-    <b-steps>
+    <!-- <b-steps>
         <b-step-item label="Account" icon="account-key"></b-step-item>
         <b-step-item label="Profile" icon="account"></b-step-item>
         <b-step-item label="Social" icon="account-plus"></b-step-item>
-    </b-steps>
+    </b-steps> -->
 
-    <div class="div">
-      <svg-icon type="mdi" :path="path"></svg-icon>
+    
+
+    <!-- <label>
+      Material 3
+      <md-checkbox checked></md-checkbox>
+    </label> -->
+
+    <!-- <md-outlined-button>Back</md-outlined-button>
+    <md-filled-button>Next</md-filled-button> -->
+
+    
+    
+    
+    <div class="container ">
+      
+      <div class="div">
+      
+      
+      </div>
+      <div class="card">
+        &nbsp;
+        <svg-icon type="mdi" :path="path" :size="48"></svg-icon>
+        <svg-icon type="mdi" :path="mdiHome" :size="48"></svg-icon>
+        <h1>Welcome to IEMS</h1>
+        <div class="section">
+          <b-field label="Username"
+            type="is-success"
+            message="This username is available"
+            horizontal>
+            <b-input value="johnsilver" maxlength="30"></b-input>
+        </b-field>
+
+        <b-field label="Password" horizontal>
+            <b-input type="password"
+                value="iwantmytreasure"
+                password-reveal>
+            </b-input>
+        </b-field>
+        </div>
+        
+          
+          <div class="buttons is-centered">
+              <b-button type="is-success" router-link to="/login">Login</b-button>
+              <b-button type="is-link" router-link to="/login">Sign Up</b-button>
+          </div>
+          &nbsp;
+      </div>
+          
     </div>
-  
+
+
 </template>
 
 <script>
+
 import SvgIcon from '@jamescoyle/vue-icon';
-import { mdiVuejs } from '@mdi/js';
+import { mdiVuejs, mdiHome,mdiWeatherNight } from '@mdi/js';
 export default {
-  name: "my-component",
+  name: "HomeVersionA",
   components: {
     SvgIcon
   },
@@ -140,7 +188,7 @@ export default {
                 date: new Date(),
                 disableWeekends: false,
                 unselectableAfterDate: 20,
-                path: mdiVuejs,
+                path: mdiVuejs, mdiHome,mdiWeatherNight,
             }
         },
         methods: {
@@ -149,6 +197,30 @@ export default {
             }
         }
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleButton = document.getElementById('toggle-dark-mode');
+
+  toggleButton.addEventListener('click', () => {
+    const currentTheme = document.documentElement.dataset.theme;
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = newTheme;
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.dataset.theme = savedTheme;
+  }
+
+  const toggleButton = document.getElementById('toggle-dark-mode');
+
+  toggleButton.addEventListener('click', () => {
+    const currentTheme = document.documentElement.dataset.theme;
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = newTheme;
+    localStorage.setItem('theme', newTheme);
+  });
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

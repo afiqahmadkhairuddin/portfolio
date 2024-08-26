@@ -1,20 +1,35 @@
 <template>
+  <div id="app">
+    <nav class="navbar">
+      
+    </nav>
+    <section class="section">
+      <div class="container" style="text-align: right;">
+        
+        <ThemeToggle />
+      </div>
+    </section>
+  </div>
+  <HelloWorld />
   
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue';
+import ThemeToggle from './components/ThemeToggle.vue';
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    ThemeToggle,
   }
 }
 </script>
 
 <style>
+@import './assets/theme.css';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

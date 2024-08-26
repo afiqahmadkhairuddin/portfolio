@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@jamescoyle/vue-icon": "^0.1.2",
+    "@material/web": "^2.1.0",
     "@mdi/js": "^7.4.47",
+    "axios": "^1.7.5",
     "buefy": "npm:@ntohq/buefy-next@^0.1.4",
     "bulma": "^1.0.2",
     "core-js": "^3.8.3",
